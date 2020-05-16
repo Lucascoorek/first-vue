@@ -6,11 +6,16 @@
 </template>
 
 <script>
+import { eventHub } from "../main";
+
 export default {
   name: "Footer",
   props: {
     msg: String,
     title: String
+  },
+  created() {
+    eventHub.$on("changeTitle", data => (this.title = data));
   }
 };
 </script>

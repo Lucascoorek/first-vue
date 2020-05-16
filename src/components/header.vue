@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { eventHub } from "../main";
 export default {
   name: "Header",
   props: {
@@ -17,9 +18,10 @@ export default {
   },
   methods: {
     changeTitle() {
-      let newTitle =
+      this.title =
         this.title === "Great Family" ? "Very Great Family" : "Great Family";
-      this.$emit("titleChange", newTitle);
+      // this.$emit("titleChange", newTitle);
+      eventHub.$emit("changeTitle", this.title);
     }
   }
 };
