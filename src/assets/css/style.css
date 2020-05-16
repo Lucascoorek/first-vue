@@ -1,0 +1,9 @@
+body, html{
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+body{
+  background-color: rgb(31, 39, 61);
+  color: #ddd;
+}
