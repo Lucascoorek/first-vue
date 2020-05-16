@@ -1,25 +1,37 @@
 <template>
   <div class="header">
     <h1>{{ msg }}</h1>
+    <div @click="changeTitle">
+      <p>Click this to change primitve prop passed to header and footer from App component</p>
+      <h3>{{title}}</h3>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Header',
+  name: "Header",
   props: {
-    msg: String
+    msg: String,
+    title: String
+  },
+  methods: {
+    changeTitle() {
+      let newTitle =
+        this.title === "Great Family" ? "Very Great Family" : "Great Family";
+      this.$emit("titleChange", newTitle);
+    }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.header{
+.header {
   background-color: rgb(8, 45, 146);
 }
-h1{
-  margin: 0 0 40px 0; 
+h1 {
+  margin: 0 0 40px 0;
   padding: 20px;
 }
 </style>

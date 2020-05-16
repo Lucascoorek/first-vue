@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <app-header msg="Vue app" />
+    <app-header msg="Vue app" v-bind:title="title" v-on:titleChange="dataTitleChange($event)" />
     <app-main v-bind:family="family" />
-    <app-footer msg="Copyright 2020" />
+    <app-footer msg="Copyright 2020" v-bind:title="title" />
   </div>
 </template>
 
@@ -25,8 +25,14 @@ export default {
         { name: "Lukas", age: 38, show: false },
         { name: "Witek", age: 6, show: false },
         { name: "Bruno", age: 6, show: false }
-      ]
+      ],
+      title: "Great Family"
     };
+  },
+  methods: {
+    dataTitleChange(title) {
+      this.title = title;
+    }
   }
 };
 </script>
