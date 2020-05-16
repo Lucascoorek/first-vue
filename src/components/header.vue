@@ -13,8 +13,13 @@ import { eventHub } from "../main";
 export default {
   name: "Header",
   props: {
-    msg: String,
-    title: String
+    msg: String
+    // title: String
+  },
+  data() {
+    return {
+      title: "Great Family"
+    };
   },
   methods: {
     changeTitle() {

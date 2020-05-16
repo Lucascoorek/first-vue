@@ -11,8 +11,12 @@ import { eventHub } from "../main";
 export default {
   name: "Footer",
   props: {
-    msg: String,
-    title: String
+    msg: String
+  },
+  data() {
+    return {
+      title: "The Family"
+    };
   },
   created() {
     eventHub.$on("changeTitle", data => (this.title = data));

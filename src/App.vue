@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <app-header msg="Vue app" v-bind:title="title" v-on:titleChange="dataTitleChange($event)" />
+    <app-header msg="Vue app" v-on:titleChange="dataTitleChange($event)" />
     <app-main v-bind:family="family" />
-    <app-footer msg="Copyright 2020" v-bind:title="title" />
+    <app-footer msg="Copyright 2020" />
   </div>
 </template>
 
