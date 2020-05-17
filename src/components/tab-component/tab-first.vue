@@ -2,7 +2,7 @@
   <div class="tab-one">
     <h3>{{title}}</h3>
     <p>{{ msg }}</p>
-    <input type="text" />
+    <slot name="component"></slot>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   name: "FirstTab",
   data() {
     return {
-      title: "First Tab",
+      title: "Tata Tab",
       msg: "This is some content from component one"
     };
   }

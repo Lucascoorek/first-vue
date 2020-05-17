@@ -2,11 +2,15 @@
   <div class="tab-list">
     <h3>{{title}}</h3>
     <div class="tab-container">
-      <button @click="component='first-tab'">First-tab</button>
-      <button @click="component='second-tab'">Second-tab</button>
+      <button @click="component='tata'">About Tata</button>
+      <button @click="component='mama'">About Mama</button>
       <keep-alive>
         <component v-bind:is="component"></component>
       </keep-alive>
+      <slot name="component">
+        <label for="text">Rate {{component}} from 0-10</label>
+        <input id="text" type="text" v-model.lazy="score[component]" />
+      </slot>
     </div>
   </div>
 </template>
@@ -18,14 +22,18 @@ import SecondTab from "./tab-second";
 export default {
   name: "TabList",
   components: {
-    "first-tab": FirstTab,
-    "second-tab": SecondTab
+    tata: FirstTab,
+    mama: SecondTab
   },
   props: {},
   data() {
     return {
       title: "Tab List Component",
-      component: "first-tab"
+      component: "mama",
+      score: {
+        mama: "",
+        tata: ""
+      }
     };
   }
 };
@@ -39,7 +47,6 @@ export default {
   padding: 20px;
 }
 .tab-container {
-  border: 1px solid #000;
   margin: 20px auto;
   width: 100%;
   height: 150px;

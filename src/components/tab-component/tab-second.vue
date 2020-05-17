@@ -2,6 +2,7 @@
   <div class="tab-second">
     <h3>{{title}}</h3>
     <p>{{ msg }}</p>
+    <slot name="component"></slot>
   </div>
 </template>
 
@@ -10,7 +11,7 @@ export default {
   name: "SecondTab",
   data() {
     return {
-      title: "Second Tab",
+      title: "Mama Tab",
       msg: "This is some content from component two"
     };
   }
