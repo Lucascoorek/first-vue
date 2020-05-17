@@ -1,7 +1,8 @@
 <template>
   <div class="header">
     <h1>{{ msg }}</h1>
-    <div @click="changeTitle">
+    <p>Powered by Vue.js</p>
+    <div class="click-container" @click="changeTitle">
       <p>Click this to change primitve prop passed to header and footer from App component</p>
       <h3>{{title}}</h3>
     </div>
@@ -40,5 +41,11 @@ export default {
 h1 {
   margin: 0 0 40px 0;
   padding: 20px;
+}
+.click-container {
+  cursor: pointer;
+  max-width: 400px;
+  border: 1px solid #ddd;
+  margin: 20px auto;
 }
 </style>

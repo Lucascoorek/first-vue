@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <app-header msg="Vue app" v-on:titleChange="dataTitleChange($event)" />
+    <app-header msg="Family App" v-on:titleChange="dataTitleChange($event)" />
     <app-main v-bind:family="family" />
-    <app-footer msg="Copyright 2020" />
+    <app-footer msg="Copyright 2020">
+      <div slot="footer">
+        <p>{{footerData}}</p>
+      </div>
+    </app-footer>
   </div>
 </template>
 
@@ -26,7 +30,8 @@ export default {
         { name: "Witek", age: 6, show: false },
         { name: "Bruno", age: 6, show: false }
       ],
-      title: "Great Family"
+      title: "Great Family",
+      footerData: "Data from parent"
     };
   },
   methods: {

@@ -2,6 +2,9 @@
   <div class="footer">
     <h3>{{title}}</h3>
     <p>{{ msg }}</p>
+    <p>This will above slot in footer</p>
+    <slot name="footer"></slot>
+    <p>This is under slot in footer</p>
   </div>
 </template>
 

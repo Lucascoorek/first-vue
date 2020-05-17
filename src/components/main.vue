@@ -44,6 +44,7 @@ ul {
   flex-wrap: wrap;
 }
 li {
+  cursor: pointer;
   flex-basis: 300px;
   border: 1px solid #ddd;
   margin: 20px;
