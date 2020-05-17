@@ -11,8 +11,8 @@ export default {
   name: "FirstTab",
   data() {
     return {
-      title: "Tata Tab",
-      msg: "This is some content from component one"
+      title: "Tata",
+      msg: "Tata's name is Lukas. He is web developer"
     };
   }
 };

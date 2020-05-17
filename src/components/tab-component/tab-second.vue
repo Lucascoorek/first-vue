@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       title: "Mama Tab",
-      msg: "This is some content from component two"
+      msg: "Mama is awesome! She is a interpreter"
     };
   }
 };

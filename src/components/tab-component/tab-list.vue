@@ -8,8 +8,14 @@
         <component v-bind:is="component"></component>
       </keep-alive>
       <slot name="component">
-        <label for="text">Rate {{component}} from 0-10</label>
-        <input id="text" type="text" v-model.lazy="score[component]" />
+        <form @submit="submit" >
+        <label for="text">Rate <span style="color: red;">{{component}}</span> from 1-10</label>
+        <select id="text" v-model.lazy="score[component]" >
+          <option v-for="(score, i) in scoresArray" :key="i" >{{score}}</option>
+        </select>
+        <input type="submit" value="Submit">
+        <p style="color: red;" v-if="error">Need to give a score to Tata & Mama</p>
+        </form> 
       </slot>
     </div>
   </div>
@@ -31,10 +37,33 @@ export default {
       title: "Tab List Component",
       component: "mama",
       score: {
-        mama: "",
-        tata: ""
-      }
+        mama: 0,
+        tata: 0,
+      },
+      scoresArray: [1,2,3,4,5,6,7,8,9,10],
+      error: false,
     };
+  },
+  methods: {
+    submit(e){
+      e.preventDefault();
+      if(this.score.mama === 0 || this.score.tata === 0){
+        this.error = true;
+        return; 
+      }
+      this.$http.post('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify({
+          title: 'score',
+          body: this.score,
+          userId: 1
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }).then(res => console.log(res.data))
+      this.error= false;
+    }
   }
 };
 </script>
