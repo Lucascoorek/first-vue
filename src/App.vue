@@ -3,6 +3,7 @@
     <app-header msg="Family App" v-on:titleChange="dataTitleChange($event)" />
     <app-main v-bind:family="family" />
     <TabList />
+    <ShowScores/>
     <app-footer msg="Copyright 2020">
       <div slot="footer">
         <p>{{footerData}}</p>
@@ -16,6 +17,7 @@ import Header from "./components/header.vue";
 import Main from "./components/main";
 import Footer from "./components/footer";
 import TabList from "./components/tab-component/tab-list";
+import ShowScores from "./components/show-scores";
 
 export default {
   name: "App",
@@ -23,7 +25,8 @@ export default {
     "app-header": Header,
     "app-main": Main,
     "app-footer": Footer,
-    TabList
+    TabList,
+    ShowScores
   },
   data() {
     return {
