@@ -74,6 +74,7 @@ export default {
   background-color: rgb(175, 201, 216);
   color: #000;
   padding: 20px;
+  flex: 1;
 }
 .tab-container {
   margin: 20px auto;

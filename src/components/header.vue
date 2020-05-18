@@ -1,11 +1,19 @@
 <template>
   <div class="header">
+     <nav>
+      <ul>
+        <li><router-link to="/" exact >Home</router-link></li>
+        <li><router-link to="/scores" exact >Scores</router-link></li>
+        <li><router-link to="/tab-list" exact >Tab List</router-link></li>
+      </ul>
+    </nav>
     <h1>{{ msg }}</h1>
     <p>Powered by Vue.js</p>
     <div class="click-container" @click="changeTitle">
       <p>Click this to change primitve prop passed to header and footer from App component</p>
       <h3>{{title}}</h3>
     </div>
+   
   </div>
 </template>
 
@@ -37,6 +45,20 @@ export default {
 <style scoped>
 .header {
   background-color: rgb(8, 45, 146);
+}
+nav ul{
+  list-style-type: none;
+  display: flex;
+}
+nav li{
+  margin: 10px 20px;
+}
+nav a{
+color: #ddd;
+text-decoration: none;
+}
+nav a.router-link-active{
+  color: red;
 }
 h1 {
   margin: 0 0 40px 0;

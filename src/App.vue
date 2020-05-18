@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <app-header msg="Family App" v-on:titleChange="dataTitleChange($event)" />
-    <app-main v-bind:family="family" />
-    <TabList />
-    <ShowScores/>
+    <router-view></router-view>
     <app-footer msg="Copyright 2020">
       <div slot="footer">
         <p>{{footerData}}</p>
@@ -14,28 +12,17 @@
 
 <script>
 import Header from "./components/header.vue";
-import Main from "./components/main";
 import Footer from "./components/footer";
-import TabList from "./components/tab-component/tab-list";
-import ShowScores from "./components/show-scores";
 
 export default {
   name: "App",
   components: {
     "app-header": Header,
-    "app-main": Main,
     "app-footer": Footer,
-    TabList,
-    ShowScores
+
   },
   data() {
     return {
-      family: [
-        { name: "Kasia", age: 37, show: false },
-        { name: "Lukas", age: 38, show: false },
-        { name: "Witek", age: 6, show: false },
-        { name: "Bruno", age: 6, show: false }
-      ],
       title: "Great Family",
       footerData: "Data from parent"
     };

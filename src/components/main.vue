@@ -19,14 +19,15 @@
 <script>
 export default {
   name: "Main",
-  props: {
-    family: {
-      type: Array,
-      required: true
-    }
-  },
   data() {
-    return {};
+    return {
+      family: [
+        { name: "Kasia", age: 37, show: false },
+        { name: "Lukas", age: 38, show: false },
+        { name: "Witek", age: 6, show: false },
+        { name: "Bruno", age: 6, show: false }
+      ],
+    };
   }
 };
 </script>
@@ -35,7 +36,7 @@ export default {
 <style scoped>
 .main {
   padding: 20px;
-  flex-grow: 1;
+  flex: 1;
 }
 ul {
   list-style-type: none;
