@@ -2,7 +2,7 @@
   <div class="tab-list">
     <h3>{{title}}</h3>
     <div class="tab-container">
-      <button @click="component='tata'">About Tata</button>
+      <button v-focus @click="component='tata'">About Tata</button>
       <button @click="component='mama'">About Mama</button>
       <keep-alive>
         <component v-bind:is="component"></component>
@@ -10,7 +10,7 @@
       <slot name="component">
         <form @submit="submit" >
         <label for="text">Rate <span style="color: red;">{{component}}</span> from 1-10</label>
-        <select id="text" v-model.lazy="score[component]" >
+        <select id="text" v-model.lazy="score[component]">
           <option v-for="(score, i) in scoresArray" :key="i" >{{score}}</option>
         </select>
         <input type="submit" value="Submit">
@@ -64,7 +64,7 @@ export default {
       }).then(res => console.log(res.data))
       this.error= false;
     }
-  }
+  },
 };
 </script>
 
@@ -78,6 +78,11 @@ export default {
 .tab-container {
   margin: 20px auto;
   width: 100%;
-  height: 150px;
+
 }
+form label,select, input {
+  display: block;
+  margin: 10px auto;
+}
+
 </style>

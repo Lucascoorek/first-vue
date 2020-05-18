@@ -3,10 +3,19 @@ import App from './App.vue'
 import axios from "axios";
 import './assets/css/style.css'
 
-export const eventHub = new Vue();
+Vue.directive('focus', {
+  // When the bound element is inserted into the DOM...
+  inserted: function (el) {
+    // Focus the element
+    el.focus()
+  }
+})
 
-Vue.config.productionTip = false
-Vue.prototype.$http = axios
+Vue.prototype.$http = axios;
+
+Vue.config.productionTip = false;
+
+export const eventHub = new Vue();
 
 
 new Vue({

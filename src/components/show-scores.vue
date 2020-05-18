@@ -2,7 +2,7 @@
   <div class="show-scores">
     <h3>{{title}}</h3>
     <ul>
-      <li v-for="score in scores" :key="score.userId">{{score.title}}</li>
+      <li v-for="score in scores" :key="score.userId + Math.random()">{{score.title}}</li>
     </ul>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   name: "ShowScores",
   data() {
     return {
-      title: "The Scores",
+      title: "Data fetched from API when component is created",
       scores: [],
     };
   },
@@ -35,5 +35,8 @@ export default {
 }
 ul{
   list-style-type: none;
+}
+li{
+  padding: 10px 20px;
 }
 </style>
