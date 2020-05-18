@@ -1,8 +1,9 @@
 <template>
   <div class="show-scores">
     <h3>{{title}}</h3>
+    <input type="text" placeholder="Search the tiles..." v-model="search">
     <ul>
-      <li v-for="score in scores" :key="score.userId + Math.random()">
+      <li v-for="score in filterdTitles" :key="score.userId + Math.random()">
         <h3>
         {{score.title}}
         </h3>
@@ -21,7 +22,15 @@ export default {
     return {
       title: "Data fetched from API when component is created",
       scores: [],
+      search: '',
     };
+  },
+  computed: {
+    filterdTitles(){
+      return this.scores.filter(score => {
+        return score.title.toLowerCase().match(this.search.toLowerCase());
+      })
+    }
   },
   created() {
     this.$http.get('https://jsonplaceholder.typicode.com/posts/')
