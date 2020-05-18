@@ -2,7 +2,12 @@
   <div class="show-scores">
     <h3>{{title}}</h3>
     <ul>
-      <li v-for="score in scores" :key="score.userId + Math.random()">{{score.title}}</li>
+      <li v-for="score in scores" :key="score.userId + Math.random()">
+        <h3>
+        {{score.title}}
+        </h3>
+        <p>{{score.body | short}}</p>
+      </li>
     </ul>
   </div>
 </template>
@@ -23,6 +28,13 @@ export default {
     .then(data => {
       this.scores = data.data.slice(0, 10);
       })
+  },
+  filters: {
+    short(val){
+      if (!val) return '';
+      return `${val.slice(0, 50)}...`
+      
+    }
   }
 };
 </script>
@@ -37,6 +49,8 @@ ul{
   list-style-type: none;
 }
 li{
+  background-color:rgb(161, 138, 161);
   padding: 10px 20px;
+  margin: 20px;
 }
 </style>
