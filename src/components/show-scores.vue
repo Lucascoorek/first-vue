@@ -14,7 +14,7 @@
 </template>
 
 <script>
-
+import filterdTitless from '../mixins/filteredTitles';
 
 export default {
   name: "ShowScores",
@@ -24,13 +24,6 @@ export default {
       scores: [],
       search: '',
     };
-  },
-  computed: {
-    filterdTitles(){
-      return this.scores.filter(score => {
-        return score.title.toLowerCase().match(this.search.toLowerCase());
-      })
-    }
   },
   created() {
     this.$http.get('https://jsonplaceholder.typicode.com/posts/')
@@ -44,7 +37,8 @@ export default {
       return `${val.slice(0, 50)}...`
       
     }
-  }
+  },
+  mixins: [filterdTitless]
 };
 </script>
 
