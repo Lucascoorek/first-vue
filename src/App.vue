@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-header msg="Family App" v-on:titleChange="dataTitleChange($event)" />
-    <router-view></router-view>
+    <router-view v-bind:family="family"></router-view>
     <app-footer msg="Copyright 2020">
       <div slot="footer">
         <p>{{footerData}}</p>
@@ -24,7 +24,13 @@ export default {
   data() {
     return {
       title: "Great Family",
-      footerData: "Data from parent"
+      footerData: "Data from parent",
+      family: [
+        { name: "Kasia", age: 37, show: false },
+        { name: "Lukas", age: 38, show: false },
+        { name: "Witek", age: 6, show: false },
+        { name: "Bruno", age: 6, show: false }
+      ],
     };
   },
   methods: {

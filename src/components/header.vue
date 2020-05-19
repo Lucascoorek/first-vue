@@ -5,6 +5,7 @@
         <li><router-link to="/" exact >Home</router-link></li>
         <li><router-link to="/scores" exact >Scores</router-link></li>
         <li><router-link to="/tab-list" exact >Tab List</router-link></li>
+        <li><router-link to="/list-one" exact >List One</router-link></li>
       </ul>
     </nav>
     <h1>{{ msg }}</h1>
