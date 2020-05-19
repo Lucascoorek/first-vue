@@ -3,8 +3,8 @@
     <h1>List One</h1>
     <ul>
       <li v-for="(member, i) in family" :key="i">
-        <h2>{{member.name}}</h2>
-        <p>{{member.age}}</p>
+        <h2>{{ member.name }}</h2>
+        <p>{{ member.age }}</p>
       </li>
     </ul>
   </div>
@@ -12,14 +12,13 @@
 
 <script>
 export default {
-name: "ListOne",
-props: {
-  family: {
-    type: Array,
-    required: true,
-  }
-}
-}
+  name: "ListOne",
+  computed: {
+    family() {
+      return this.$store.state.family;
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -27,11 +26,11 @@ props: {
   background-color: rgb(181, 181, 182);
   padding: 20px;
 }
-ul{
+ul {
   list-style-type: none;
 }
-li{
-  background-color:rgb(70, 116, 214);
+li {
+  background-color: rgb(70, 116, 214);
   padding: 10px 20px;
   margin: 20px;
 }

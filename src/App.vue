@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <app-header msg="Family App" v-on:titleChange="dataTitleChange($event)" />
-    <router-view v-bind:family="family"></router-view>
+    <router-view></router-view>
     <app-footer msg="Copyright 2020">
       <div slot="footer">
-        <p>{{footerData}}</p>
+        <p>{{ footerData }}</p>
       </div>
     </app-footer>
   </div>
@@ -19,25 +19,18 @@ export default {
   components: {
     "app-header": Header,
     "app-footer": Footer,
-
   },
   data() {
     return {
       title: "Great Family",
       footerData: "Data from parent",
-      family: [
-        { name: "Kasia", age: 37, show: false },
-        { name: "Lukas", age: 38, show: false },
-        { name: "Witek", age: 6, show: false },
-        { name: "Bruno", age: 6, show: false }
-      ],
     };
   },
   methods: {
     dataTitleChange(title) {
       this.title = title;
-    }
-  }
+    },
+  },
 };
 </script>
 

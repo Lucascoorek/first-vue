@@ -2,13 +2,17 @@
   <div class="main">
     <h3>The Family</h3>
     <ul>
-      <li v-for="member in family" v-on:click="member.show = !member.show" :key="member.name">
-        <p>{{member.name}}</p>
+      <li
+        v-for="member in family"
+        v-on:click="member.show = !member.show"
+        :key="member.name"
+      >
+        <p>{{ member.name }}</p>
         <div>
           <p>Click to show age</p>
           <p>
             The age is:
-            <span v-show="member.show">{{member.age}}</span>
+            <span v-show="member.show">{{ member.age }}</span>
           </p>
         </div>
       </li>
@@ -19,16 +23,11 @@
 <script>
 export default {
   name: "Main",
-  props: {
-    family: {
-      type: Array,
-      required: true,
-    }
+  computed: {
+    family() {
+      return this.$store.state.family;
+    },
   },
-  data() {
-    return {
-    };
-  }
 };
 </script>
 
