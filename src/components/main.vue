@@ -2,25 +2,23 @@
   <div class="main">
     <h3>The Family</h3>
     <ul>
-      <li
-        v-for="member in surname"
-        v-on:click="member.show = !member.show"
-        :key="member.name"
-      >
+      <li v-for="member in surname" :key="member.name">
         <p>{{ member.name }} {{ member.surname }}</p>
         <div>
           <p>Click to show age</p>
           <p>
             The age is:
-            <span v-show="member.show">{{ member.age }}</span>
+            <span>{{ member.age }}</span>
           </p>
         </div>
       </li>
     </ul>
+    <button @click="decrease">Decrease age by 3 year</button>
   </div>
 </template>
 
 <script>
+import { DECREASE_AGE } from "../store/mutation-types";
 export default {
   name: "Main",
   computed: {
@@ -29,6 +27,14 @@ export default {
     },
     surname() {
       return this.$store.getters.addSurname;
+    },
+  },
+  methods: {
+    decrease() {
+      this.$store.commit({
+        type: DECREASE_AGE,
+        amount: 3,
+      });
     },
   },
 };

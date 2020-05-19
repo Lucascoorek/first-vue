@@ -1,9 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { DECREASE_AGE } from "./mutation-types";
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
+  strict: true,
   state: {
     family: [
       { name: "Kasia", age: 37, show: false },
@@ -19,6 +21,13 @@ export const store = new Vuex.Store({
           ...member,
           surname: "Kurek",
         };
+      });
+    },
+  },
+  mutations: {
+    [DECREASE_AGE](state, payload) {
+      state.family.forEach((member) => {
+        member.age = member.age - payload.amount;
       });
     },
   },
