@@ -3,11 +3,11 @@
     <h3>The Family</h3>
     <ul>
       <li
-        v-for="member in family"
+        v-for="member in surname"
         v-on:click="member.show = !member.show"
         :key="member.name"
       >
-        <p>{{ member.name }}</p>
+        <p>{{ member.name }} {{ member.surname }}</p>
         <div>
           <p>Click to show age</p>
           <p>
@@ -26,6 +26,9 @@ export default {
   computed: {
     family() {
       return this.$store.state.family;
+    },
+    surname() {
+      return this.$store.getters.addSurname;
     },
   },
 };

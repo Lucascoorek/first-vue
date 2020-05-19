@@ -12,4 +12,14 @@ export const store = new Vuex.Store({
       { name: "Bruno", age: 6, show: false },
     ],
   },
+  getters: {
+    addSurname: (state) => {
+      return state.family.map((member) => {
+        return {
+          ...member,
+          surname: "Kurek",
+        };
+      });
+    },
+  },
 });
