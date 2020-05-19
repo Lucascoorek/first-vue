@@ -39,4 +39,9 @@ export const store = new Vuex.Store({
       });
     },
   },
+  actions: {
+    [DECREASE_ONE](context, payload) {
+      setTimeout(() => context.commit(DECREASE_ONE, payload), 1000);
+    },
+  },
 });

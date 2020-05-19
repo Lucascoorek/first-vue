@@ -41,7 +41,7 @@ export default {
       });
     },
     decreaseOne(name) {
-      this.$store.commit({
+      this.$store.dispatch({
         type: DECREASE_ONE,
         name,
       });
