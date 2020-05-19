@@ -3,12 +3,14 @@
     <h3>{{title}}</h3>
     <input type="text" placeholder="Search the tiles..." v-model="search">
     <ul>
-      <li v-for="score in filterdTitles" :key="score.userId + Math.random()">
+      <router-link v-for="score in filterdTitles" :key="score.id" :to="'single-post/' + score.id">
+      <li >
         <h3>
         {{score.title}}
         </h3>
         <p>{{score.body | short}}</p>
       </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -21,7 +23,7 @@ export default {
   data() {
     return {
       title: "Data fetched from API when component is created",
-      scores: [],
+      scores: [{body: '', id: 1, title:''}],
       search: '',
     };
   },
