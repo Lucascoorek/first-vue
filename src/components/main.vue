@@ -22,16 +22,16 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
+
 import { DECREASE_AGE, DECREASE_ONE } from "../store/mutation-types";
 export default {
   name: "Main",
   computed: {
-    family() {
-      return this.$store.state.family;
-    },
-    surname() {
-      return this.$store.getters.addSurname;
-    },
+    ...mapState(["family"]),
+    ...mapGetters({
+      surname: "addSurname",
+    }),
   },
   methods: {
     decrease() {
