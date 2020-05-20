@@ -5,14 +5,20 @@
       <li v-for="(member, i) in family" :key="i">
         <h2>{{ member.name }}</h2>
         <p>{{ member.age }}</p>
+        <ListOneForm v-bind:member="member" />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import ListOneForm from "./list-one-form";
+
 export default {
   name: "ListOne",
+  components: {
+    ListOneForm,
+  },
   computed: {
     family() {
       return this.$store.state.family;

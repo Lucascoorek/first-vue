@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { DECREASE_AGE, DECREASE_ONE } from "./mutation-types";
+import { DECREASE_AGE, DECREASE_ONE, CHANGE_AGE } from "./mutation-types";
 
 Vue.use(Vuex);
 
@@ -35,6 +35,14 @@ export const store = new Vuex.Store({
         return {
           ...member,
           age: member.name === payload.name ? member.age - 1 : member.age,
+        };
+      });
+    },
+    [CHANGE_AGE](state, { name, age }) {
+      state.family = state.family.map((member) => {
+        return {
+          ...member,
+          age: member.name === name ? age : member.age,
         };
       });
     },
