@@ -1,10 +1,8 @@
 <template>
-  <form @submit="changeAge">
-    <label for="age">Change {{ member.name }}'s age </label>
-    <input id="age" type="text" v-model="age" />
-    <label for="submit">You want to change age to: {{ age }}</label>
-    <input id="submit" type="submit" value="Change age" />
-  </form>
+  <div>
+    <label>Change {{ member.name }}'s age </label>
+    <input type="text" v-model="age" />
+  </div>
 </template>
 
 <script>
@@ -17,17 +15,17 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      age: "",
-    };
-  },
-  methods: {
-    changeAge(e) {
-      e.preventDefault();
-      console.log({ age: this.age, name: this.member.name });
-      this.$store.commit(CHANGE_AGE, { age: this.age, name: this.member.name });
-      this.age = "";
+  computed: {
+    age: {
+      get() {
+        const index = this.$store.state.family.findIndex(
+          (member) => member.name === this.member.name
+        );
+        return this.$store.state.family[index].age;
+      },
+      set(value) {
+        this.$store.commit(CHANGE_AGE, { age: value, name: this.member.name });
+      },
     },
   },
 };
